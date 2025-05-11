@@ -1,0 +1,40 @@
+name: "Proxmox QDevice External Vote Support"
+description: "Proxmox QDevice for External Vote Support"
+version: "0.1.0"
+slug: "proxmox_qdevice_external_vote_support"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+ports:
+  "5403": "5403"
+  "22": null # for security reasons set by the user to ensure manual is followed
+ports_description:
+  "5403": "corosync-qnetd port"
+  "22": "ssh port used during 'pvecm qdevice setup <QDEVICE-IP>'"
+options:
+  port: 5403
+  server_tls: "on"
+  client_tls: "on"
+  debug: true
+  public_keys:
+    - public_key: "" # by default assume that corosync-qnetd is able to push its certificate
+  sshd_config: |
+      Port 22
+      PermitRootLogin yes
+      StrictModes yes
+      PubkeyAuthentication yes
+      PasswordAuthentication no
+      UsePAM yes
+      Subsystem sftp internal-sftp
+schema:
+  port: int
+  server_tls: str
+  client_tls: str
+  debug: bool
+  sshd_config: str
+  public_keys:
+    - public_key: str
