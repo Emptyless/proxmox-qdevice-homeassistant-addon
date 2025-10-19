@@ -1,6 +1,8 @@
 # Proxmox QDevice External Vote Support HomeAssistant Add-on
 
 > ⚠️ this is experimental and not recommended for production usage, use at own risk ⚠️
+>
+> Also, see https://github.com/naps1saps/HA-QDevice for a similar approach to handling QDevice setups in HomeAssistant based on [naps1saps #1](https://github.com/Emptyless/proxmox-qdevice-homeassistant-addon/issues/1#issuecomment-3413970657)
 
 This add-on wraps the [corosync external vote support](https://pve.proxmox.com/wiki/Cluster_Manager#_corosync_external_vote_support)
 feature of Proxmox in a Home Assistant add-on. This can be useful if you have a dedicated Home Assistant device and an even amount
